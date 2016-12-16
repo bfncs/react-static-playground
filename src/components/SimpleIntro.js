@@ -7,14 +7,14 @@ const styles = {
   },
 };
 
-const AppIntro = ({sheet: {classes}, ...props}) => (
+const SimpleIntro = ({sheet: {classes}, ...props}) => (
   <div className={classes.wrapper}>
     { props.children }
   </div>
 );
 
-AppIntro.PropTypes = {
+SimpleIntro.PropTypes = {
   children: React.PropTypes.node,
 };
 
-export default injectSheet(styles)(AppIntro);
+export default injectSheet(styles)(SimpleIntro);

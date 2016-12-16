@@ -1,8 +1,7 @@
 import React  from 'react';
 import injectSheet from 'react-jss';
 import globalStyles from './style/globalStyles';
-import AppHeader from './components/AppHeader';
-import AppIntro from './components/AppIntro';
+import { Link } from 'react-router'
 
 const styles = {
   ...globalStyles,
@@ -11,12 +10,17 @@ const styles = {
   },
 };
 
-const App = ({ sheet: { classes }} ) => (
-  <div className={ classes.wrapper }>
-    <AppHeader title={ 'Welcome to React' } />
-    <AppIntro>
-      <p>To get started, edit <code>src/App.js</code> and save to reload.</p>
-    </AppIntro>
+const App = ({ sheet: { classes }, children } ) => (
+  <div>
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/subpage">Subpage</Link></li>
+      </ul>
+    </nav>
+    <div className={ classes.wrapper }>
+      {children}
+    </div>
   </div>
 );
 

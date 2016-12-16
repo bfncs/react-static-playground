@@ -16,7 +16,7 @@ const styles = {
   },
 };
 
-const AppHeader = ({sheet: {classes}, ...props}) => (
+const SimpleHeader = ({sheet: {classes}, ...props}) => (
   <div className={classes.wrapper}>
     <img
       src={ logo }
@@ -27,13 +27,13 @@ const AppHeader = ({sheet: {classes}, ...props}) => (
   </div>
 );
 
-AppHeader.PropTypes = {
+SimpleHeader.PropTypes = {
   title: React.PropTypes.string.isRequired,
   logoAlt: React.PropTypes.string,
 };
 
-AppHeader.defaultProps = {
+SimpleHeader.defaultProps = {
   logoAlt: 'Logo',
 };
 
-export default injectSheet(styles)(AppHeader);
+export default injectSheet(styles)(SimpleHeader);
