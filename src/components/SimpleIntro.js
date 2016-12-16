@@ -3,6 +3,7 @@ import injectSheet from 'react-jss'
 
 const styles = {
   wrapper: {
+    margin: '2em 1em',
     fontSize: 'large',
   },
 };

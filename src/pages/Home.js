@@ -4,7 +4,7 @@ import SimpleIntro from '../components/SimpleIntro';
 
 const Home = () => (
   <div>
-    <SimpleHeader title={ 'Welcome to the homepage' } />
+    <SimpleHeader>Welcome to the homepage</SimpleHeader>
     <SimpleIntro>
       <p>It's beautiful here, isn't it?</p>
     </SimpleIntro>

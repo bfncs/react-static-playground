@@ -23,12 +23,12 @@ const SimpleHeader = ({sheet: {classes}, ...props}) => (
       className={ classes.logo }
         alt={ props.logoAlt }
     />
-    <h2>{ props.title }</h2>
+    <h2>{ props.children }</h2>
   </div>
 );
 
 SimpleHeader.PropTypes = {
-  title: React.PropTypes.string.isRequired,
+  children: React.PropTypes.string.isRequired,
   logoAlt: React.PropTypes.string,
 };
 
