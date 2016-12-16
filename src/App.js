@@ -1,7 +1,7 @@
 import React  from 'react';
 import injectSheet from 'react-jss';
 import globalStyles from './style/globalStyles';
-import { Link } from 'react-router'
+import SimpleNavigation from './components/SimpleNavigation';
 
 const styles = {
   ...globalStyles,
@@ -12,12 +12,7 @@ const styles = {
 
 const App = ({ sheet: { classes }, children } ) => (
   <div>
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/subpage">Subpage</Link></li>
-      </ul>
-    </nav>
+    <SimpleNavigation />
     <div className={ classes.wrapper }>
       {children}
     </div>
