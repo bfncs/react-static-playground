@@ -14,10 +14,6 @@ const routes = (
   </Route>
 );
 
-console.log({
-  hasDocument: typeof document !== 'undefined'
-});
-
 if (typeof document !== 'undefined') {
   render(
     <Router history={browserHistory} routes={routes} />,
