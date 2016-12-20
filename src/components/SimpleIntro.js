@@ -1,5 +1,6 @@
 import React from 'react';
-import injectSheet from 'react-jss'
+import injectSheet from 'react-jss';
+import { jssSheet } from '../util/propTypes';
 
 const styles = {
   wrapper: {
@@ -8,14 +9,15 @@ const styles = {
   },
 };
 
-const SimpleIntro = ({sheet: {classes}, ...props}) => (
+const SimpleIntro = ({ sheet: { classes }, ...props }) => (
   <div className={classes.wrapper}>
     { props.children }
   </div>
 );
 
-SimpleIntro.PropTypes = {
+SimpleIntro.propTypes = {
   children: React.PropTypes.node,
+  sheet: jssSheet,
 };
 
 export default injectSheet(styles)(SimpleIntro);

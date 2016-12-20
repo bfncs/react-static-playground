@@ -1,4 +1,4 @@
-import { create } from 'jss'
+import { create } from 'jss';
 import preset from 'jss-preset-default';
 import { create as createInjectSheet } from 'react-jss';
 

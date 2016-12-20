@@ -1,11 +1,11 @@
 import React from 'react';
-import { render } from 'react-dom'
+import { render } from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
+import { Router, Route, RouterContext, IndexRoute, browserHistory, createMemoryHistory, match } from 'react-router';
 import App from './App';
 import Home from './pages/Home';
 import Subpage from './pages/Subpage';
 
-import { Router, Route, RouterContext, IndexRoute, browserHistory, createMemoryHistory, match } from 'react-router';
 
 const routes = (
   <Route path="/" component={App}>
@@ -17,12 +17,11 @@ const routes = (
 if (typeof document !== 'undefined') {
   render(
     <Router history={browserHistory} routes={routes} />,
-    document.getElementById('root')
+    document.getElementById('root'),
     );
 }
 
 export default (locals, callback) => {
-  console.log({locals});
   const history = createMemoryHistory();
   const location = history.createLocation(locals.path);
 

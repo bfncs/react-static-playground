@@ -1,6 +1,6 @@
 import hash from 'murmurhash-js/murmurhash3_gc';
 
-const getAnimationIdentifier = (name) => ('animation' + hash(name));
+const getAnimationIdentifier = name => (`animation${hash(name)}`);
 
 export const spin = getAnimationIdentifier('spin');
 

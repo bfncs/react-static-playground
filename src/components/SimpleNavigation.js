@@ -1,6 +1,7 @@
-import React  from 'react';
+import React from 'react';
 import injectSheet from 'react-jss';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+import { jssSheet } from '../util/propTypes';
 
 const styles = {
   wrapper: {
@@ -23,7 +24,7 @@ const styles = {
     textDecoration: 'none',
     '&:hover': {
       color: 'lightblue',
-    }
+    },
   },
 };
 
@@ -38,25 +39,27 @@ const menuItems = [
   },
 ];
 
-const SimpleNavigation = ({ sheet: { classes }}) => {
-  return (
-    <nav className={ classes.wrapper }>
-      <ul className={ classes.list }>
-        {
+const SimpleNavigation = ({ sheet: { classes } }) => (
+  <nav className={classes.wrapper}>
+    <ul className={classes.list}>
+      {
           menuItems.map(({ path, label }) => (
-            <li className={ classes.item }>
+            <li className={classes.item}>
               <Link
-                className={ classes.anchor }
-                to={ path }
+                className={classes.anchor}
+                to={path}
               >
                 { label }
               </Link>
             </li>
           ))
         }
-      </ul>
-    </nav>
-  )
+    </ul>
+  </nav>
+);
+
+SimpleNavigation.propTypes = {
+  sheet: jssSheet,
 };
 
 export default injectSheet(styles)(SimpleNavigation);
