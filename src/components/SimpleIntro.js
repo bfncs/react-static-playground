@@ -1,5 +1,5 @@
 import React from 'react';
-import injectSheet from 'react-jss';
+import injectSheet from '../util/injectSheet';
 import { jssSheet } from '../util/propTypes';
 
 const styles = {

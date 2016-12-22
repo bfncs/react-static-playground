@@ -1,5 +1,5 @@
 import React from 'react';
-import injectSheet from 'react-jss';
+import injectSheet from './util/injectSheet';
 import globalStyles from './style/globalStyles';
 import SimpleNavigation from './components/SimpleNavigation';
 import { jssSheet } from './util/propTypes';

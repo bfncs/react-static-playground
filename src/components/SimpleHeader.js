@@ -1,5 +1,5 @@
 import React from 'react';
-import injectSheet from 'react-jss';
+import injectSheet from '../util/injectSheet';
 import logo from '../logo.svg';
 import { spin } from '../style/animations';
 import { jssSheet } from '../util/propTypes';
