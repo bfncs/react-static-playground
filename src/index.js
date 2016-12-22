@@ -54,6 +54,7 @@ export default (locals, callback) => {
         appContent={appContent}
         appStyle={sheets.toString()}
         appStyleId={serverSideStylesId}
+        buildHash={locals.buildHash}
       />,
     );
     callback(null, html);

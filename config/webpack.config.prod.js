@@ -8,6 +8,9 @@ var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+var uuidV4 = require('uuid/v4');
+
+var buildChunkHash = uuidV4().substring(0, 8);
 
 
 function ensureSlash(path, needsSlash) {
@@ -64,8 +67,8 @@ module.exports = {
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
-    filename: 'static/js/[name].js',
-    chunkFilename: 'static/js/[name].chunk.js',
+    filename: 'static/js/[name].' + buildChunkHash + '.js', // eslint-ignore prefer-template
+    chunkFilename: 'static/js/[name].chunk' + buildChunkHash + '.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
     libraryTarget: 'umd',
@@ -236,11 +239,17 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json'
     }),
-    new StaticSiteGeneratorPlugin('main', [
-      '/',
-      '/subpage',
-      '/otherpage',
-    ]),
+    new StaticSiteGeneratorPlugin(
+      'main',
+      [
+        '/',
+        '/subpage',
+        '/otherpage',
+      ],
+      {
+        buildHash: buildChunkHash,
+      }
+    ),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

@@ -18,7 +18,7 @@ const HtmlWrapper = (props) => {
         <div id="root">
           { content }
         </div>
-        <script type="text/javascript" src="/static/js/main.js" charSet="utf-8" />
+        <script src={`/static/js/main.${props.buildHash}.js`} type="text/javascript" charSet="utf-8" />
       </body>
     </html>
   );
@@ -29,6 +29,7 @@ HtmlWrapper.propTypes = {
   appContent: PropTypes.node.isRequired,
   appStyle: PropTypes.string.isRequired,
   appStyleId: PropTypes.string.isRequired,
+  buildHash: PropTypes.string.isRequired,
 };
 
 export default HtmlWrapper;
