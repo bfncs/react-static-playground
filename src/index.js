@@ -10,6 +10,8 @@ import Subpage from './pages/Subpage';
 import OtherPage from './pages/OtherPage';
 import HtmlWrapper from './components/HtmlWrapper';
 
+const serverSideStylesId = 'server-side-styles';
+
 const Routes = (
   <Route>
     <IndexRoute component={Home} />
@@ -23,12 +25,15 @@ const routes = (
     { Routes }
   </Route>
 );
-
 if (typeof document !== 'undefined') {
   render(
     <Router history={browserHistory} routes={routes} />,
     document.getElementById('root'),
-    );
+    () => {
+      const serverSideStyles = document.getElementById(serverSideStylesId);
+      serverSideStyles.parentNode.removeChild(serverSideStyles);
+    },
+  );
 }
 
 export default (locals, callback) => {
@@ -48,6 +53,7 @@ export default (locals, callback) => {
         title={head.title.toComponent()}
         appContent={appContent}
         appStyle={sheets.toString()}
+        appStyleId={serverSideStylesId}
       />,
     );
     callback(null, html);

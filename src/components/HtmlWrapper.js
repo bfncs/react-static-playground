@@ -10,7 +10,7 @@ const HtmlWrapper = (props) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {props.title}
-        <style type="text/css">
+        <style id={props.appStyleId} type="text/css">
           {props.appStyle}
         </style>
       </head>
@@ -28,6 +28,7 @@ HtmlWrapper.propTypes = {
   title: PropTypes.node.isRequired,
   appContent: PropTypes.node.isRequired,
   appStyle: PropTypes.string.isRequired,
+  appStyleId: PropTypes.string.isRequired,
 };
 
 export default HtmlWrapper;
