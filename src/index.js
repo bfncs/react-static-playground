@@ -6,12 +6,14 @@ import Helmet from 'react-helmet';
 import App from './App';
 import Home from './pages/Home';
 import Subpage from './pages/Subpage';
+import OtherPage from './pages/OtherPage';
 import HtmlWrapper from './components/HtmlWrapper';
 
 const Routes = (
   <Route>
     <IndexRoute component={Home} />
     <Route path="/subpage" component={Subpage} />
+    <Route path="/otherpage" component={OtherPage} />
   </Route>
 );
 

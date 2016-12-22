@@ -239,6 +239,7 @@ module.exports = {
     new StaticSiteGeneratorPlugin('main', [
       '/',
       '/subpage',
+      '/otherpage',
     ]),
   ],
   // Some libraries import Node modules but don't use them in the browser.
