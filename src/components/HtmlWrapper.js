@@ -2,9 +2,7 @@ import React, { PropTypes } from 'react';
 
 const HtmlWrapper = (props) => {
   // eslint-disable-next-line react/no-danger
-  const content = (
-    <div id="content" dangerouslySetInnerHTML={{ __html: props.appContent }} />
-  );
+  const content = (<div id="content" dangerouslySetInnerHTML={{ __html: props.appContent }} />);
 
   return (
     <html lang="en">
@@ -14,7 +12,9 @@ const HtmlWrapper = (props) => {
         {props.title}
       </head>
       <body>
-        { content }
+        <div id="root">
+          { content }
+        </div>
         <script type="text/javascript" src="/static/js/main.js" charSet="utf-8" />
       </body>
     </html>
