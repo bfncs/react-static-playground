@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
+import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss';
 import { Router, Route, RouterContext, IndexRoute, browserHistory, createMemoryHistory, match } from 'react-router';
 import Helmet from 'react-helmet';
 import App from './App';
@@ -36,11 +37,17 @@ export default (locals, callback) => {
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     const head = Helmet.rewind();
-    const appContent = ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />);
+    const sheets = new SheetsRegistry();
+    const appContent = ReactDOMServer.renderToStaticMarkup(
+      <SheetsRegistryProvider registry={sheets}>
+        <RouterContext {...renderProps} />
+      </SheetsRegistryProvider>,
+    );
     const html = ReactDOMServer.renderToStaticMarkup(
       <HtmlWrapper
         title={head.title.toComponent()}
         appContent={appContent}
+        appStyle={sheets.toString()}
       />,
     );
     callback(null, html);
