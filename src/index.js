@@ -2,29 +2,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss';
-import { Router, Route, RouterContext, IndexRoute, browserHistory, createMemoryHistory, match } from 'react-router';
+import { Router, RouterContext, browserHistory, createMemoryHistory, match } from 'react-router';
 import Helmet from 'react-helmet';
-import App from './App';
-import Home from './pages/Home';
-import Subpage from './pages/Subpage';
-import OtherPage from './pages/OtherPage';
+import routes from './routes';
 import HtmlWrapper from './components/HtmlWrapper';
 
 const serverSideStylesId = 'server-side-styles';
 
-const Routes = (
-  <Route>
-    <IndexRoute component={Home} />
-    <Route path="/subpage" component={Subpage} />
-    <Route path="/otherpage" component={OtherPage} />
-  </Route>
-);
 
-const routes = (
-  <Route path="/" component={App}>
-    { Routes }
-  </Route>
-);
 if (typeof document !== 'undefined') {
   render(
     <Router history={browserHistory} routes={routes} />,
