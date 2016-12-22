@@ -37,6 +37,10 @@ const menuItems = [
     path: '/subpage',
     label: 'Subpage',
   },
+  {
+    path: '/otherpage',
+    label: 'Other page',
+  },
 ];
 
 const SimpleNavigation = ({ sheet: { classes } }) => (
