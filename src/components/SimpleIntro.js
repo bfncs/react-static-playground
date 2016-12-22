@@ -1,6 +1,6 @@
 import React from 'react';
-import injectSheet from '../util/injectSheet';
-import { jssSheet } from '../util/propTypes';
+import injectSheet from '../utils/injectSheet';
+import { jssSheet } from '../utils/propTypes';
 
 const styles = {
   wrapper: {

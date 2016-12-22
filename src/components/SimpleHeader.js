@@ -1,8 +1,8 @@
 import React from 'react';
-import injectSheet from '../util/injectSheet';
+import injectSheet from '../utils/injectSheet';
 import logo from '../logo.svg';
 import { spin } from '../style/animations';
-import { jssSheet } from '../util/propTypes';
+import { jssSheet } from '../utils/propTypes';
 
 const styles = {
   wrapper: {

@@ -1,8 +1,8 @@
 import React from 'react';
-import injectSheet from './util/injectSheet';
+import injectSheet from './utils/injectSheet';
 import globalStyles from './style/globalStyles';
 import SimpleNavigation from './components/SimpleNavigation';
-import { jssSheet } from './util/propTypes';
+import { jssSheet } from './utils/propTypes';
 
 const styles = {
   ...globalStyles,
