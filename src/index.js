@@ -35,11 +35,11 @@ export default (locals, callback) => {
     const head = Helmet.rewind();
     const html = ReactDOMServer.renderToStaticMarkup(
       <HtmlWrapper
-        title={head.title.toComponent()}
         appContent={appContent}
         appStyle={sheets.toString()}
         appStyleId={serverSideStylesId}
         buildHash={locals.buildHash}
+        head={head}
       />,
     );
     callback(null, html);
