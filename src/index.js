@@ -26,13 +26,13 @@ export default (locals, callback) => {
   const location = history.createLocation(locals.path);
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
-    const head = Helmet.rewind();
     const sheets = new SheetsRegistry();
     const appContent = ReactDOMServer.renderToStaticMarkup(
       <SheetsRegistryProvider registry={sheets}>
         <RouterContext {...renderProps} />
       </SheetsRegistryProvider>,
     );
+    const head = Helmet.rewind();
     const html = ReactDOMServer.renderToStaticMarkup(
       <HtmlWrapper
         title={head.title.toComponent()}
